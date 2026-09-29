@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTs Miftahul Huda - MIDA BERLIAN</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#1b5e20',
+                            primary: '#006633',
+                            light: '#2e7d32',
+                            accent: '#d4af37',
+                            gold: '#f59e0b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .tab-btn.active {
+            background-color: #006633;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans leading-relaxed">
+
+    <!-- TOP BAR -->
+    <div class="bg-brand-dark text-white text-xs sm:text-sm py-2 px-4 border-b border-brand-accent/30">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-4">
+                <a href="https://wa.me/6282322112257" target="_blank" class="hover:text-brand-accent flex items-center gap-1 transition">
+                    <i class="fab fa-whatsapp text-emerald-400"></i> 0823-2211-2257
+                </a>
+                <a href="mailto:mtsmiftahulhuda@gmail.com" class="hover:text-brand-accent flex items-center gap-1 transition">
+                    <i class="fas fa-envelope text-brand-accent"></i> mtsmiftahulhuda@gmail.com
+                </a>
+            </div>
+            <div class="flex items-center space-x-3 text-xs">
+                <span class="font-semibold text-brand-accent">Layanan Digital:</span>
+                <button onclick="toggleModal('modal-ppdb')" class="hover:underline text-brand-accent font-bold">PPDB</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RUNNING TEXT -->
+    <div class="bg-brand-accent text-brand-dark text-xs sm:text-sm font-semibold py-1.5 px-4 shadow-inner">
+        <div class="max-w-7xl mx-auto flex items-center">
+            <span class="bg-brand-dark text-white px-2 py-0.5 rounded text-xs uppercase font-bold mr-3 shrink-0">Info</span>
+            <div class="marquee-container w-full">
+                <div class="marquee-content">
+                    Selamat Datang di Website Resmi MTs Miftahul Huda | Alamat: Semondo, Mondoretno, Bulu, Temanggung, Jawa Tengah | Pendaftaran Peserta Didik Baru (PPDB) Telah Dibuka!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER & NAVIGASI -->
+    <header class="bg-white shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="https://lh3.googleusercontent.com/d/1--p-J8MEBta7sidzGRh9oDHjHQwwbQvD" alt="Logo MTs Miftahul Huda" class="h-12 w-auto object-contain" onerror="this.src='https://via.placeholder.com/80?text=LOGO'">
+                <div>
+                    <h1 class="font-bold text-lg sm:text-xl text-brand-primary leading-tight">MTs MIFTAHUL HUDA</h1>
+                    <p class="text-xs text-slate-500 font-medium">Semondo, Bulu, Temanggung</p>
+                </div>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-700">
+                <a href="#beranda" class="hover:text-brand-primary transition">Beranda</a>
+                <a href="#profil" class="hover:text-brand-primary transition">Profil</a>
+                <a href="#sejarah" class="hover:text-brand-primary transition">Sejarah</a>
+                <a href="#progam" class="hover:text-brand-primary transition">Progam & Ekstra</a>
+                <a href="#berita" class="hover:text-brand-primary transition">Berita & Galeri</a>
+                <button onclick="toggleModal('modal-ppdb')" class="bg-brand-primary text-white px-4 py-2 rounded-lg hover:bg-brand-dark transition shadow">
+                    PPDB Online
+                </button>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-brand-primary focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-100 border-t border-slate-200 px-4 py-3 space-y-2">
+            <a href="#beranda" class="block py-2 text-slate-700 font-medium">Beranda</a>
+            <a href="#profil" class="block py-2 text-slate-700 font-medium">Profil & Sambutan</a>
+            <a href="#sejarah" class="block py-2 text-slate-700 font-medium">Sejarah Madrasah</a>
+            <a href="#progam" class="block py-2 text-slate-700 font-medium">Progam & Ekstra</a>
+            <a href="#berita" class="block py-2 text-slate-700 font-medium">Berita & Galeri</a>
+            <button onclick="toggleModal('modal-ppdb')" class="w-full text-center bg-brand-primary text-white py-2 rounded-lg font-medium">
+                PPDB Online
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section id="beranda" class="relative bg-brand-primary text-white py-24 px-4 overflow-hidden">
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/d/1VW8FgM6PCs0DMr42uboqU2Cv3X7inQz0');"></div>
+        
+        <div class="relative z-20 max-w-5xl mx-auto text-center space-y-6">
+            <span class="bg-brand-accent text-brand-dark px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider shadow">
+                MIDA BERLIAN
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold leading-tight">
+                MTs Miftahul Huda
+            </h2>
+            <p class="text-lg sm:text-2xl italic font-light text-slate-200">
+                "Berkah dalam Iman, Ilmu dan Amalan"
+            </p>
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <button onclick="toggleModal('modal-ppdb')" class="bg-brand-accent text-brand-dark font-bold px-6 py-3 rounded-lg shadow-lg hover:bg-yellow-400 transition transform hover:-translate-y-0.5">
+                    <i class="fas fa-user-plus mr-2"></i> Daftar PPDB Online
+                </button>
+                <a href="#profil" class="bg-white/20 hover:bg-white/30 text-white font-semibold px-6 py-3 rounded-lg backdrop-blur transition">
+                    <i class="fas fa-info-circle mr-2"></i> Informasi Sekolah
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROFIL & SAMBUTAN KEPALA MADRASAH -->
+    <section id="profil" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                
+                <!-- Foto & Sambutan Kepala Sekolah -->
+                <div class="lg:col-span-5 bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center shadow-sm">
+                    <img src="https://lh3.googleusercontent.com/d/1_FuRYfpGDEGFN3l7GHVTjOZ6bfjrS9cU" alt="Lukman Nurofik, S.Ag" class="w-52 h-64 object-cover rounded-xl mx-auto shadow-md mb-4" onerror="this.src='https://via.placeholder.com/200x250?text=Kepala+Madrasah'">
+                    <h3 class="text-xl font-bold text-brand-primary">Lukman Nurofik, S.Ag</h3>
+                    <p class="text-xs text-slate-500 font-semibold mb-4">Kepala MTs Miftahul Huda</p>
+                    
+                    <div class="text-left text-sm text-slate-600 space-y-3 bg-white p-4 rounded-xl border border-slate-100">
+                        <p class="italic font-medium text-brand-primary">"Assalamu’alaikum warahmatullahi wabarakatuh,"</p>
+                        <p>Selamat datang di situs web resmi MTs Miftahul Huda. Puji dan syukur kita panjatkan ke hadirat Allah SWT, serta shalawat dan salam kepada Nabi Muhammad SAW.</p>
+                        <p>Situs web ini hadir sebagai media informasi, transparansi, dan silaturahmi antara madrasah, siswa, orang tua, serta masyarakat. Melalui platform ini, Anda dapat mengakses berbagai informasi mengenai profil, program unggulan, dan perkembangan kegiatan di madrasah kami.</p>
+                        <p>Sebagai lembaga pendidikan Islam, kami berkomitmen untuk melahirkan generasi yang unggul secara akademis, berakhlaqul karimah, serta berpegang teguh pada nilai-nilai keislaman.</p>
+                        <p class="italic">"Wassalamu’alaikum warahmatullahi wabarakatuh."</p>
+                    </div>
+                </div>
+
+                <!-- Visi, Misi & Struktur Organisasi -->
+                <div class="lg:col-span-7 space-y-8">
+                    <!-- Visi Misi -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                        <h3 class="text-2xl font-bold text-brand-primary mb-4 flex items-center gap-2">
+                            <i class="fas fa-bullseye text-brand-accent"></i> Visi & Misi
+                        </h3>
+                        <div class="mb-4">
+                            <span class="text-xs font-bold text-slate-500 uppercase">VISI</span>
+                            <p class="text-lg font-semibold text-brand-primary italic bg-white p-4 rounded-xl border-l-4 border-brand-primary shadow-sm mt-1">
+                                "Terwujudnya generasi yang islami, cerdas, terampil dan berakhlakul karimah"
+                            </p>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-slate-500 uppercase">MISI</span>
+                            <ol class="list-decimal list-inside space-y-2 text-slate-700 text-sm mt-2">
+                                <li class="pl-2">Menumbuhkan sikap, tindakan dan pembiasaan yang islami sesuai adab dengan meneladani Rasulullah SAW.</li>
+                                <li class="pl-2">Menumbuhkan semangat berprestasi dalam bidang akademis bagi seluruh warga madrasah sesuai dengan potensi yang dimiliki.</li>
+                                <li class="pl-2">Mengembangkan minat dan bakat siswa serta meningkatkan prestasi melalui ekstrakurikuler.</li>
+                                <li class="pl-2">Membiasakan budi pekerti yang berakhlakul karimah.</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Struktur Organisasi Singkat -->
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                        <h3 class="text-xl font-bold text-brand-primary mb-3 flex items-center gap-2">
+                            <i class="fas fa-sitemap text-brand-accent"></i> Struktur Organisasi
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                            <div class="bg-white p-3 rounded-lg border border-slate-200">
+                                <p class="text-xs text-slate-500">Kepala Madrasah</p>
+                                <p class="font-bold text-slate-800">Lukman Nurofik, S.Ag</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-200">
+                                <p class="text-xs text-slate-500">Komite Madrasah</p>
+                                <p class="font-bold text-slate-800">Pengurus Komite MTs</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-200">
+                                <p class="text-xs text-slate-500">Koor. Bidang Akademik & Kesiswaan</p>
+                                <p class="font-bold text-slate-800">Tim Tenaga Pendidik</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-slate-200">
+                                <p class="text-xs text-slate-500">Tata Usaha & Administrasi</p>
+                                <p class="font-bold text-slate-800">Staf Administrasi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SEJARAH MADRASAH -->
+    <section id="sejarah" class="py-16 bg-slate-100 border-t border-b border-slate-200">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <span class="text-xs font-bold text-brand-accent uppercase tracking-wider">Rekam Jejak</span>
+                <h3 class="text-2xl sm:text-3xl font-bold text-brand-primary mt-1">Sejarah Madrasah</h3>
+            </div>
+            
+            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm space-y-4 text-slate-700 text-sm leading-relaxed text-justify">
+                <p>
+                    Sejarah berdirinya MTs. Miftahul Huda Mondoretno Bulu Temanggung tidak lepas dari peran serta <strong>Al-Maghfurlah K.H Abdul Hadi Sofwan</strong>, pendiri sekaligus pengasuh pondok pesantren Al-Huda Jampirejo Temanggung. Pada tanggal 24 April 1985, bertempat di Desa Mondoretno Kecamatan Bulu Kabupaten Temanggung, pendirian MTs ini dibantu dan didorong oleh para ulama’ serta tokoh masyarakat di bawah naungan Lembaga Pendidikan Ma’arif NU.
+                </p>
+                <p>
+                    Mulai tahun pelajaran 1985/1986, didirikanlah MTs Miftahul Huda Mondoretno. Pada awal berdirinya, kegiatan belajar mengajar meminjam gedung pengajian anak-anak yang hanya memiliki tiga ruang berukuran 6 x 7 m². Hal ini dilakukan untuk memberikan kesempatan belajar bagi masyarakat setempat mengingat banyaknya anak yang putus sekolah akibat jarak ke kota yang jauh serta keterbatasan ekonomi.
+                </p>
+                <p>
+                    Pada tahun pelajaran 1996/1997, pengurus dan masyarakat merelokasi bangunan gedung ke lokasi baru di atas tanah wakaf seluas 1.650 m². Secara resmi berbadan hukum melalui Notaris dengan nomor : <code>Wk / 5.c / Pgm/Ts/1986</code>, serta telah terakreditasi oleh Departemen Agama RI berdasarkan SK Nomor : <code>138/BAP/X/2014</code>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FASILITAS UNGGULAN & EKSTRAKURIKULER -->
+    <section id="fasilitas" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <h3 class="text-2xl sm:text-3xl font-bold text-brand-primary">Fasilitas & Ekstrakurikuler</h3>
+                <p class="text-slate-600 text-sm mt-1">Wadah pembinaan karakter, bakat, dan spiritual siswa</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Fasilitas Al-Qur'an -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+                    <img src="https://lh3.googleusercontent.com/d/1WzE2PRDEA1-in2XHWqwJKCOt-jN-bJws" alt="Fasilitas Mengaji" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <span class="text-xs font-bold text-brand-primary uppercase">Fasilitas Utama</span>
+                        <h4 class="font-bold text-lg text-slate-800 mt-1">Program Baca Al-Qur'an</h4>
+                        <p class="text-sm text-slate-600 mt-2">Jaminan kelulusan: Setiap lulusan dibina hingga mampu membaca Al-Qur'an dengan baik dan benar.</p>
+                    </div>
+                </div>
+
+                <!-- Ekstra Pramuka -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+                    <img src="https://lh3.googleusercontent.com/d/1Hh3zu49h0lyjPCEEHhsgyJyvIcWHTw7x" alt="Pramuka" class="w-full h-48 object-cover" onerror="this.src='https://via.placeholder.com/400x250?text=Pramuka'">
+                    <div class="p-5">
+                        <span class="text-xs font-bold text-brand-accent uppercase">Ekstrakurikuler</span>
+                        <h4 class="font-bold text-lg text-slate-800 mt-1">Pramuka</h4>
+                        <p class="text-sm text-slate-600 mt-2">Membentuk karakter kedisiplinan, kemandirian, kepemimpinan, serta kepedulian sosial siswa.</p>
+                    </div>
+                </div>
+
+                <!-- Ekstra Pencak Silat -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+                    <img src="https://lh3.googleusercontent.com/d/1F4KoxPijQWbXe8K6HmmN8B7cJ-PIYR1Q" alt="Pencak Silat" class="w-full h-48 object-cover" onerror="this.src='https://via.placeholder.com/400x250?text=Pencak+Silat'">
+                    <div class="p-5">
+                        <span class="text-xs font-bold text-brand-accent uppercase">Ekstrakurikuler</span>
+                        <h4 class="font-bold text-lg text-slate-800 mt-1">Pencak Silat</h4>
+                        <p class="text-sm text-slate-600 mt-2">Seni bela diri tradisional untuk melatih kebugaran fisik, ketangkasan, dan pembentukan mental bertaqwa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BERITA, PENGUMUMAN & GALERI -->
+    <section id="berita" class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl sm:text-3xl font-bold text-brand-primary">Berita & Galeri Kegiatan</h3>
+                <p class="text-slate-600 text-sm mt-1">Dokumentasi dan informasi terbaru seputar madrasah</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex justify-center gap-2 mb-8">
+                <button onclick="switchTab('berita-tab')" id="btn-berita" class="tab-btn active px-5 py-2 text-sm font-semibold rounded-lg bg-white border border-slate-300 shadow-sm transition">Berita & Pengumuman</button>
+                <button onclick="switchTab('galeri-tab')" id="btn-galeri" class="tab-btn px-5 py-2 text-sm font-semibold rounded-lg bg-white border border-slate-300 shadow-sm transition">Galeri Foto</button>
+            </div>
+
+            <!-- Content Berita -->
+            <div id="berita-tab" class="tab-content grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Berita 1 -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/d/1zBPRMj2ZXr4YwICXfqtKGrA4ndjYlHnf" alt="Berita 1" class="w-full h-44 object-cover" onerror="this.src='https://via.placeholder.com/400x200?text=Kegiatan+Madrasah'">
+                    <div class="p-4">
+                        <span class="text-xs font-bold text-brand-primary bg-green-50 px-2 py-0.5 rounded">Kegiatan</span>
+                        <h4 class="font-bold text-base mt-2 text-slate-800">Kegiatan Pembelajaran & Pembiasaan Karakter</h4>
+                        <p class="text-xs text-slate-500 mt-2">Pelaksanaan kegiatan rutin harian di madrasah dalam rangka pembentukan akhlak siswa.</p>
+                    </div>
+                </div>
+                <!-- Berita 2 -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/d/1GRCz-PNbmNOGlj4UydtS0EhP_bCSTPq2" alt="Berita 2" class="w-full h-44 object-cover" onerror="this.src='https://via.placeholder.com/400x200?text=Pengumuman'">
+                    <div class="p-4">
+                        <span class="text-xs font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded">Pengumuman</span>
+                        <h4 class="font-bold text-base mt-2 text-slate-800">Pendaftaran Peserta Didik Baru (PPDB)</h4>
+                        <p class="text-xs text-slate-500 mt-2">Informasi penerimaan siswa baru tahun ajaran mendatang telah dibuka resmi.</p>
+                    </div>
+                </div>
+                <!-- Berita 3 -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/d/1iVOFvo3iOgC1HYYvGHVu-j6peurWXLLt" alt="Berita 3" class="w-full h-44 object-cover" onerror="this.src='https://via.placeholder.com/400x200?text=Prestasi'">
+                    <div class="p-4">
+                        <span class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Kegiatan</span>
+                        <h4 class="font-bold text-base mt-2 text-slate-800">Pelatihan Ekstrakurikuler Siswa</h4>
+                        <p class="text-xs text-slate-500 mt-2">Pengembangan minat bakat siswa secara berkala melalui program ekstrakurikuler.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Galeri -->
+            <div id="galeri-tab" class="tab-content hidden grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
+                    <img src="https://lh3.googleusercontent.com/d/1zBPRMj2ZXr4YwICXfqtKGrA4ndjYlHnf" alt="Galeri 1" class="w-full h-36 object-cover rounded" onerror="this.src='https://via.placeholder.com/200?text=Galeri+1'">
+                    <p class="text-xs text-center font-medium text-slate-600 mt-2">Kegiatan Belajar</p>
+                </div>
+                <div class="bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
+                    <img src="https://lh3.googleusercontent.com/d/1GRCz-PNbmNOGlj4UydtS0EhP_bCSTPq2" alt="Galeri 2" class="w-full h-36 object-cover rounded" onerror="this.src='https://via.placeholder.com/200?text=Galeri+2'">
+                    <p class="text-xs text-center font-medium text-slate-600 mt-2">Suasana Madrasah</p>
+                </div>
+                <div class="bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
+                    <img src="https://lh3.googleusercontent.com/d/1Hh3zu49h0lyjPCEEHhsgyJyvIcWHTw7x" alt="Galeri 3" class="w-full h-36 object-cover rounded" onerror="this.src='https://via.placeholder.com/200?text=Galeri+3'">
+                    <p class="text-xs text-center font-medium text-slate-600 mt-2">Latihan Pramuka</p>
+                </div>
+                <div class="bg-white p-2 rounded-lg border border-slate-200 shadow-sm">
+                    <img src="https://lh3.googleusercontent.com/d/1F4KoxPijQWbXe8K6HmmN8B7cJ-PIYR1Q" alt="Galeri 4" class="w-full h-36 object-cover rounded" onerror="this.src='https://via.placeholder.com/200?text=Galeri+4'">
+                    <p class="text-xs text-center font-medium text-slate-600 mt-2">Latihan Pencak Silat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION BROSUR PPDB -->
+    <section class="py-16 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="bg-gradient-to-r from-brand-dark to-brand-primary rounded-3xl p-6 sm:p-10 text-white shadow-xl">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <span class="bg-brand-accent text-brand-dark px-3 py-1 rounded-full text-xs font-bold uppercase">Penerimaan Siswa Baru</span>
+                        <h3 class="text-2xl sm:text-4xl font-extrabold mt-3">PPDB Online MTs Miftahul Huda</h3>
+                        <p class="text-slate-200 text-sm mt-3 leading-relaxed">
+                            Mari bergabung bersama kami di MTs Miftahul Huda Temanggung. Mendidik siswa berakhlakul karimah, berprestasi, dan unggul dalam ilmu keislaman.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <button onclick="toggleModal('modal-ppdb')" class="bg-brand-accent text-brand-dark font-bold px-6 py-3 rounded-xl hover:bg-yellow-400 transition shadow">
+                                Isi Formulir Pendaftaran
+                            </button>
+                            <a href="https://wa.me/6282322112257" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-3 rounded-xl transition flex items-center gap-2">
+                                <i class="fab fa-whatsapp text-lg"></i> Hubungi Panitia
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://lh3.googleusercontent.com/d/1KkSuhkqHlFRtyFWSJFlU0tHmiqi109IW" alt="Brosur PPDB" class="max-h-80 mx-auto rounded-xl shadow-lg border-2 border-white/20 object-contain" onerror="this.src='https://via.placeholder.com/300x400?text=Brosur+PPDB'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER & MAPS -->
+    <footer class="bg-slate-900 text-slate-300 text-sm pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <!-- Kolom 1 -->
+            <div class="space-y-3">
+                <div class="flex items-center space-x-3">
+                    <img src="https://lh3.googleusercontent.com/d/1--p-J8MEBta7sidzGRh9oDHjHQwwbQvD" alt="Logo" class="h-10 w-auto" onerror="this.src='https://via.placeholder.com/40'">
+                    <h4 class="font-bold text-white text-base">MTs Miftahul Huda</h4>
+                </div>
+                <p class="text-xs text-slate-400">Semondo, Mondoretno, Bulu, Temanggung, Jawa Tengah</p>
+                <div class="pt-2 space-y-1 text-xs">
+                    <p><i class="fab fa-whatsapp text-emerald-400 mr-2"></i> 0823-2211-2257</p>
+                    <p><i class="fas fa-envelope text-brand-accent mr-2"></i> mtsmiftahulhuda@gmail.com</p>
+                </div>
+                <!-- Sosial Media Links -->
+                <div class="flex space-x-3 pt-3">
+                    <a href="https://www.facebook.com/mts.miftahul.huda.mondoretno?rdid=yc0630mTlODzQbpj&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1NKQGAWwkj%2F#" target="_blank" class="w-8 h-8 bg-slate-800 hover:bg-brand-primary rounded-full flex items-center justify-center transition" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/mida_berlian?utm_source=qr&stkn=ZTJibTVwaW5nZDVv" target="_blank" class="w-8 h-8 bg-slate-800 hover:bg-brand-primary rounded-full flex items-center justify-center transition" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@mida_berlian?_r=1&_t=ZS-9A2xAALjZOE" target="_blank" class="w-8 h-8 bg-slate-800 hover:bg-brand-primary rounded-full flex items-center justify-center transition" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://youtube.com/@mtsmiftahulhuda6838?si=vtI6eBQ1PTuyUSXL" target="_blank" class="w-8 h-8 bg-slate-800 hover:bg-brand-primary rounded-full flex items-center justify-center transition" title="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Kolom 2 -->
+            <div>
+                <h5 class="font-bold text-white mb-3">Tautan Navigasi</h5>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#profil" class="hover:text-white transition">Profil & Sambutan</a></li>
+                    <li><a href="#sejarah" class="hover:text-white transition">Sejarah Madrasah</a></li>
+                    <li><a href="#fasilitas" class="hover:text-white transition">Fasilitas & Ekstra</a></li>
+                    <li><a href="#berita" class="hover:text-white transition">Berita & Galeri</a></li>
+                </ul>
+            </div>
+
+            <!-- Kolom 3: Peta Lokasi -->
+            <div>
+                <h5 class="font-bold text-white mb-3">Peta Lokasi</h5>
+                <div class="rounded-lg overflow-hidden border border-slate-700 h-36">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5!2d110.1!3d-7.3!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTgnMDAuMCJTIDExMMKwMDYnMDAuMCJF!5e0!3m2!1sid!2sid!4v1600000000000!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <a href="https://maps.app.goo.gl/hMbb5UxuaQCpZAcr6" target="_blank" class="text-xs text-brand-accent hover:underline block mt-2">
+                    <i class="fas fa-map-marker-alt mr-1"></i> Buka Peta Google Maps
+                </a>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 border-t border-slate-800 pt-4 text-center text-xs text-slate-500">
+            &copy; 2026 MTs Miftahul Huda Mondoretno Bulu Temanggung. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- MODAL POPUP PPDB (Bisa terhubung ke WhatsApp / Google Form) -->
+    <div id="modal-ppdb" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-200">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto text-left">
+            <button onclick="toggleModal('modal-ppdb')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">&times;</button>
+            <h3 class="text-xl font-bold text-brand-primary mb-1">Formulir PPDB Online</h3>
+            <p class="text-xs text-slate-500 mb-4">Silakan isi data di bawah ini. Data pendaftaran akan terkirim langsung ke panitia PPDB MTs Miftahul Huda.</p>
+
+            <form onsubmit="handlePPDBSubmit(event)" class="space-y-3 text-sm">
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Nama Lengkap Siswa</label>
+                    <input type="text" id="namaSiswa" required class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-primary outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Asal Sekolah (SD/MI)</label>
+                    <input type="text" id="asalSekolah" required class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-primary outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Nama Orang Tua / Wali</label>
+                    <input type="text" id="namaOrtu" required class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-primary outline-none">
+                </div>
+                <div>
+                    <label class="block font-semibold text-slate-700 mb-1">Nomor WhatsApp</label>
+                    <input type="tel" id="noHp" required class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-primary outline-none">
+                </div>
+                <button type="submit" class="w-full bg-brand-primary text-white font-bold py-2.5 rounded-lg hover:bg-brand-dark transition">
+                    Kirim Pendaftaran
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL POPUP DETAIL LAYANAN -->
+    <div id="modal-layanan" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-200">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative text-left">
+            <button onclick="toggleModal('modal-layanan')" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl font-bold">&times;</button>
+            <h3 id="layanan-title" class="text-xl font-bold text-brand-primary mb-2"></h3>
+            <p id="layanan-desc" class="text-sm text-slate-600 mb-4"></p>
+            <button onclick="toggleModal('modal-layanan')" class="w-full bg-slate-200 text-slate-800 font-semibold py-2 rounded-lg hover:bg-slate-300 transition">Tutup</button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Modal Functionality
+        function toggleModal(modalID) {
+            const modal = document.getElementById(modalID);
+            modal.classList.toggle('opacity-0');
+            modal.classList.toggle('pointer-events-none');
+        }
+
+        function openLayananModal(title, desc) {
+            document.getElementById('layanan-title').innerText = title;
+            document.getElementById('layanan-desc').innerText = desc;
+            toggleModal('modal-layanan');
+        }
+
+        // Tab Switching Functionality
+        function switchTab(tabID) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            document.getElementById(tabID).classList.remove('hidden');
+            if (tabID === 'berita-tab') {
+                document.getElementById('btn-berita').classList.add('active');
+            } else {
+                document.getElementById('btn-galeri').classList.add('active');
+            }
+        }
+
+        // Submit Form via WhatsApp Direct
+        function handlePPDBSubmit(e) {
+            e.preventDefault();
+            const nama = document.getElementById('namaSiswa').value;
+            const sekolah = document.getElementById('asalSekolah').value;
+            const ortu = document.getElementById('namaOrtu').value;
+            const hp = document.getElementById('noHp').value;
+
+            const text = `Halo Panitia PPDB MTs Miftahul Huda,%0A%0ASaya ingin mendaftar PPDB Online dengan data berikut:%0A- *Nama Siswa*: ${nama}%0A- *Asal Sekolah*: ${sekolah}%0A- *Nama Ortu/Wali*: ${ortu}%0A- *No. WA*: ${hp}`;
+            
+            window.open(`https://wa.me/6282322112257?text=${text}`, '_blank');
+            toggleModal('modal-ppdb');
+        }
+    </script>
+</body>
+</html>
